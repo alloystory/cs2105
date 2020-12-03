@@ -1,0 +1,35 @@
+# Exercise 1
+
+## Task 1
+1. 3
+
+2. Highest - 720p, Lowest - 350p
+
+3. Different video quality levels allow clients to pull video segments based on their current network bandwidth to ensure a continuous playback of the video. This is particularly useful for clients on unstable network. In this scenario, the client can choose to pull higher quality video segments when it detects that the network bandwidth is good, and adaptively pull lower quality video segments when the network bandwidth drops.
+
+4. Advantage - The difference in playback quality on the clients will be less drastic, allowing users to have a better user experience
+Disadvantage - Having many quality levels will be very space intensive on the servers, which can increase the costs of maintenance and affect scalability
+
+## Task 2
+1. http://monterosa.d2.comp.nus.edu.sg/~maylim/streaming/segment_bbb_7201.m4s
+
+2. m4s
+
+3. 122880ms
+
+4. Advantage - Using longer video segments will reduce the number of segments required, which in turns reduces the total overhead
+Disadvantage - Longer video segments can increase playback latency as clients ability to dynamically adapt to changes in network performance become reduced.
+
+
+# Exercise 2
+
+## Task 2
+1. The browser's network log tracks HTTP connections. DASH runs on HTTP so its connections will show up on the browsers' network log. WebRTC does not run on HTTP so its connections does not show up on the browsers' network log.
+
+2. DASH runs on HTTP, which uses TCP as its transport protocol. WebRTC mainly runs on RTP which uses UDP as its transport protocol. The reasons for this difference are:
+    1. WebRTC is used for conversational applications, which requires low latency. Therefore, it cannot afford the high overhead of TCP. On the other hand, DASH is used for less latency-sensitive applications. Hence, it does not necessarily have to use UDP.
+    2. DASH is used for Video on Demand which requires reliability of transmission. Hence, it needs to use TCP which ensures the reliability of transmission. On the other hand, WebRTC does not require reliability of transmission, so it does not necessarily have to use TCP.
+
+3. Other differences:
+    1. DASH sends audio and video through the same channel, whereas WebRTC sends audio and video through different channels. This allows WebRTC to have low latency.
+    2. DASH has a client buffer to store video segments, whereas WebRTC does not have a buffer. This difference allows DASH to have redundancy so that users will receive the full video transmission, whereas WebRTC will simply drop the lost frames.
